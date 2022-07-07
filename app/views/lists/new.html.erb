@@ -1,5 +1,3 @@
-<h1>Lists#new</h1>
-<p>Find me in app/views/lists/new.html.erb</p>
 
 <h1>新規投稿</h1>
 <!-- from_with部分 -->
@@ -13,6 +11,8 @@
   <h4>本文</h4>
   <%= f.text_area :body %>
 
+  <h4>画像</h4>
+  <%= f.file_field :image, accept: "image/*" %>
   <%= f.submit '投稿' %>
 
 

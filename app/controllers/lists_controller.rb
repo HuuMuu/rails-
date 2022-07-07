@@ -11,7 +11,7 @@ def create
   #3.データをデータベースに保存するためのsaveメソッド実行
   list.save
   #4,トップ画面へリダイレクト
-  redirect_to '/top'
+  redirect_to list_path(list.id)
 end
 
   def index
@@ -19,15 +19,23 @@ end
   end
 
   def show
+    @list = List.find(params[:id])
   end
 
   def edit
+    @list = List.find(params[:id])
+  end
+
+  def update
+    list = List.find(params[:id])
+    list.update(list_parames)
+    redirect_to list_path(list. id)
   end
 
   private
 
   #ストロングパラメータ
   def list_parames
-    params.require(:list).permit(:title, :body)
+    params.require(:list).permit(:title, :body, :image)
   end
 end
